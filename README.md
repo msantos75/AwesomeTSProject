@@ -1,8 +1,11 @@
+<p align='center'>  
+  <img 
+       width='300px'
+       src='https://miro.medium.com/max/1400/1*K0a7xINk0RM5gfXGSN68cw.png' 
+       alt='React Native logo'/>
+</p>
 <h1 align='center'>AwesomeTSProject</h1>
 <h2 align="center">Aprendizado do framework React Native</h2>
-<p align='center'>
-  <img src='https://miro.medium.com/max/1400/1*K0a7xINk0RM5gfXGSN68cw.png' alt='React Native logo'/>
-</p>
 
 [ReactNative](https://reactnative.dev/)
   - Versão: 0.64
