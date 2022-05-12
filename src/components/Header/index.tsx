@@ -1,14 +1,15 @@
 import React from 'react'
 import {View, Text, StyleSheet} from 'react-native'
+import {Props} from './type'
 
-const Header: React.FC = () => {
+const Header: React.FC<Props> = (prop) => {
   return (
   <View>
     <Text style = {style.Title}>
-      Bem-vindo aos estudos de React Native
+      {prop.nameTitle}
     </Text>
     <Text style = {style.SubTitle}>
-      O que vamos fazer primeiro?
+      {prop.nameSubTitle}
     </Text>
   </View>
   )
