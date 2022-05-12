@@ -2,11 +2,11 @@ import React from 'react'
 import {View, Text, StyleSheet} from 'react-native'
 
 const App: React.FC = () => {
-  return <View style = {style.App}> 
+  return <View style = {style.App}>
     <Text style = {style.Title}>
-      Bem-vindo aos estudos!
+      Bem-vindo aos estudos de React Native
     </Text>
-  </View>    
+  </View>
 }
 
 export default App
