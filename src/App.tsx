@@ -1,12 +1,11 @@
 import React from 'react'
-import {View, Text, StyleSheet} from 'react-native'
+import {StyleSheet, SafeAreaView} from 'react-native'
+import Header from './components/Header'
 
 const App: React.FC = () => {
-  return <View style = {style.App}>
-    <Text style = {style.Title}>
-      Bem-vindo aos estudos de React Native
-    </Text>
-  </View>
+  return <SafeAreaView style = {style.App}>
+    <Header />
+  </SafeAreaView>
 }
 
 export default App
@@ -15,11 +14,6 @@ const style = StyleSheet.create({
   App: {
     flex: 1,
     backgroundColor: "#111222",
-    justifyContent: "center",
-  },
-  Title: {
-    color: "white",
-    fontSize: 24,
-    textAlign : "center",
+    justifyContent: "center"
   }
 })
