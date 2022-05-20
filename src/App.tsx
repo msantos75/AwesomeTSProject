@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from 'react'
-import {StyleSheet, SafeAreaView, Button} from 'react-native'
+import React, {useState, useEffect, useCallback, useMemo, useRef} from 'react'
+import {StyleSheet, SafeAreaView, Button, TextInput} from 'react-native'
 import Header from './components/Header'
 
 const App: React.FC = () => {
@@ -17,7 +17,7 @@ const App: React.FC = () => {
     }
   }, [stateNameUser])
 
-  const handlePressButton = () => {
+  const handlePressButton = useCallback(() => {
     setStateNameUser(oldName => {
       if (oldName === 'Trump') {
         return 'Bolsonaro'
@@ -25,15 +25,26 @@ const App: React.FC = () => {
         return 'Trump'
       }
     })
-  }
+  }, [])
+
+  const nameChanged = useMemo(() => {
+    return `${stateNameUser}`
+  }, [stateNameUser])
+
+  const inputRef = useRef<TextInput>({} as TextInput)
 
   return (
     <SafeAreaView style = {style.App}>
       <Header
         nameTitle = {stateNameTitle}
-        nameSubTitle = {stateNameSubTitle + stateNameUser + '?'}
+        nameSubTitle = {stateNameSubTitle + nameChanged + '?'}
       />
-      <Button title = 'Alterar nome' onPress={handlePressButton}/>
+      <Button title = 'Alterar nome' onPress={(handlePressButton) => inputRef.current.focus()}/>
+      <TextInput
+        ref = {inputRef}
+        style = {style.Input}
+        onChangeText = {inputText => setStateNameUser(inputText)}
+      />
     </SafeAreaView>
   )
 }
@@ -45,5 +56,11 @@ const style = StyleSheet.create({
     flex: 1,
     backgroundColor: "#111222",
     justifyContent: "center"
+  },
+  Input: {
+    padding: 20,
+    backgroundColor: "rgba(50,150,50,10)",
+    color: "white",
+    fontSize: 18,
   }
 })
